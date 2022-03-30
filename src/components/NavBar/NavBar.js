@@ -1,6 +1,7 @@
 import "./NavBar.css";
+import CartWidget from "../CartWidget/CartWidget";
 
-const NavBar = () => {
+const NavBar = (props) => {
 	return (
 		<nav className="main-nav">
 			<a href="./index.html">
@@ -28,6 +29,7 @@ const NavBar = () => {
 					</a>
 				</li>
 			</ul>
+			<CartWidget />
 		</nav>
 	);
 };
