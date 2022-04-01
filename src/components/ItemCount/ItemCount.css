@@ -1,0 +1,51 @@
+.main-count {
+	border: 2px solid cornflowerblue;
+	border-radius: 5px;
+	display: flex;
+	width: 150px;
+	margin: 0 auto;
+	height: 40px;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.main-count__btn {
+	height: 100%;
+	width: 25%;
+	border: none;
+	color: rgb(114, 153, 224);
+	background-color: white;
+	font-size: 20px;
+	font-weight: bolder;
+	cursor: pointer;
+}
+
+.main-count__btn:hover {
+	color: rgb(65, 116, 212);
+}
+
+.main-count__text {
+	font-size: 20px;
+	font-weight: bolder;
+	color: rgb(65, 116, 212);
+}
+
+.main-count__btnSubmit {
+	display: block;
+	background-color: white;
+	border: 2px solid cornflowerblue;
+	border-radius: 5px;
+	width: 150px;
+	margin: 1px auto;
+	padding: 3px 10px;
+	color: rgb(65, 116, 212);
+	font-weight: bolder;
+	text-transform: uppercase;
+	font-size: 10px;
+}
+
+.main-count__btnSubmit:hover {
+	background-color: rgb(65, 116, 212);
+	color: white;
+	cursor: pointer;
+}

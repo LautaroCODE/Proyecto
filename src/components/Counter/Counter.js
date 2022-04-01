@@ -1,15 +1,28 @@
+import { useState, useEffect } from "react";
+
 const Counter = () => {
-	let count = 0;
+	const [count, setCount] = useState(0);
+
+	useEffect(() => {
+		console.log("Se acaba de montar el componente");
+		setTimeout(() => {
+			setCount(0);
+		}, 3000);
+	}, []);
+
+	useEffect(() => {
+		console.log("cambio el count");
+	}, [count]);
 
 	const decrement = () => {
-		console.log("decrement");
-		count = count - 1;
+		setCount(count - 1);
 	};
 
 	const increment = () => {
-		console.log("increment");
-		count = count + 1;
+		setCount(count + 1);
 	};
+
+	console.log("Esto esta en el cuerpo del componente");
 
 	return (
 		<div>
