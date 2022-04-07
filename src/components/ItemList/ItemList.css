@@ -1,0 +1,9 @@
+.conte {
+	display: flex;
+	flex-flow: wrap;
+	/* gap: 20px; */
+	justify-content: center;
+	margin: 30px;
+	row-gap: 40px;
+	column-gap: 50px;
+}
