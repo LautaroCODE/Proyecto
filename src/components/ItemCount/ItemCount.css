@@ -2,8 +2,8 @@
 	border: 2px solid cornflowerblue;
 	border-radius: 5px;
 	display: flex;
-	width: 150px;
-	margin: 0 auto;
+	width: 90%;
+	margin: 5px auto;
 	height: 40px;
 	justify-content: space-between;
 	align-items: center;
@@ -35,7 +35,7 @@
 	background-color: white;
 	border: 2px solid cornflowerblue;
 	border-radius: 5px;
-	width: 150px;
+	width: 90%;
 	margin: 1px auto;
 	padding: 3px 10px;
 	color: rgb(65, 116, 212);

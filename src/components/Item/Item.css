@@ -36,3 +36,8 @@
 	color: white;
 	border: 2px solid black;
 }
+
+.main-card__link {
+	text-decoration: none;
+	color: black;
+}

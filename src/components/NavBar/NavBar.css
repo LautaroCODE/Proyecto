@@ -29,3 +29,11 @@
 	font-weight: 600;
 	text-transform: uppercase;
 }
+
+.main-nav__link--active {
+	text-decoration: none;
+	font-style: 1.8rem;
+	color: deepskyblue;
+	font-weight: 600;
+	text-transform: uppercase;
+}

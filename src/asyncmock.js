@@ -1,6 +1,6 @@
 const products = [
 	{
-		id: 1,
+		id: "1",
 		name: "Samsung A02s",
 		price: 33000,
 		category: "celular",
@@ -9,7 +9,7 @@ const products = [
 		description: "Descripcion de Samsung A02s",
 	},
 	{
-		id: 2,
+		id: "2",
 		name: "Samsung S21",
 		price: 44000,
 		category: "celular",
@@ -18,29 +18,43 @@ const products = [
 		description: "Descripcion de Samsung s21",
 	},
 	{
-		id: 3,
-		name: "Samsung Galaxy S20FE",
+		id: "3",
+		name: "Samsung Notebook HP",
 		price: 30000,
-		category: "celular",
-		img: "https://images.fravega.com/f500/c965a6d0e2fc723c39b4ccc42641e001.jpg",
+		category: "notebook",
+		img: "https://www.cetrogar.com.ar/media/catalog/product/c/m/cm3221-1.jpg?width=500&height=500&canvas=500:500&quality=80&bg-color=255,255,255&fit=bounds",
 		stock: 8,
-		description: "Descripcion de Samsung Galaxy S20FE",
+		description: "Descripcion de Samsung Notebook HP",
 	},
 	{
-		id: 4,
-		name: "Samsung A03s",
+		id: "4",
+		name: "Lenovo Tab K10",
 		price: 40000,
-		category: "celular",
-		img: "https://images.fravega.com/f500/ddea497ae0d94054111cfa7b394deec3.jpg",
+		category: "tablet",
+		img: "https://http2.mlstatic.com/D_Q_NP_2X_972580-MLA48600236953_122021-P.jpg",
 		stock: 20,
-		description: "Descripcion de Samsung A03s",
+		description: "Descripcion de Lenovo Tab K10",
 	},
 ];
 
-export const getProducts = () => {
+const categories = [
+	{ id: "celular", description: "Celular" },
+	{ id: "tablet", description: "Tablet" },
+	{ id: "notebook", description: "Notebook" },
+];
+
+export const getCategories = () => {
 	return new Promise((resolve) => {
 		setTimeout(() => {
-			resolve(products);
+			resolve(categories);
+		}, 500);
+	});
+};
+
+export const getProducts = (categoryId) => {
+	return new Promise((resolve) => {
+		setTimeout(() => {
+			resolve(categoryId ? products.filter((prod) => prod.category === categoryId) : products);
 		}, 2000);
 	});
 };
