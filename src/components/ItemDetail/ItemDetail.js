@@ -1,15 +1,24 @@
 import ItemCount from "../ItemCount/ItemCount";
 import "./ItemDetail.css";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import CartContext from "../../context/CartContext";
 
-const ItemDetail = ({ img, price, name, stock }) => {
-	const [quantity, setQuantity] = useState(0);
+const ItemDetail = ({ id, img, price, name, stock }) => {
+	const { addItem, isInCart } = useContext(CartContext);
+	// console.log(value);
 
 	const handleAdd = (count) => {
 		if (count !== 0) {
-			setQuantity(count);
 			console.log(`Agregaste ${count} elementos al carrito`);
+			const objProd = {
+				id,
+				name,
+				price,
+			};
+
+			addItem({ ...objProd, quantity: count });
+			// setCart([cart.concat(objProd)]); OTRA FORMA DE HACERLO
 		}
 	};
 	return (
@@ -19,7 +28,7 @@ const ItemDetail = ({ img, price, name, stock }) => {
 				<img className="main-card-detalle__img" src={img} alt={name} />
 				<p>Precio: $ {price}</p>
 				<p> Cantidad: {stock}</p>
-				{quantity > 0 ? (
+				{isInCart(id) ? (
 					<button className="main-card__btnCard">
 						<Link className="main-btn__link" to="/cart">
 							terminar mi compra

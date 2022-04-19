@@ -4,7 +4,7 @@ import { getProductsById } from "../../asyncmock";
 import ItemDetail from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 
-const ItemDetailContainer = () => {
+const ItemDetailContainer = ({ setCart, cart }) => {
 	const [products, setProducts] = useState([]);
 	const [loading, setLoading] = useState(true);
 
@@ -28,6 +28,6 @@ const ItemDetailContainer = () => {
 		};
 	}, [productId]);
 
-	return <div className="container-card">{loading ? <h1>Cargando...</h1> : products ? <ItemDetail {...products} /> : <h1>El producto no existe</h1>}</div>;
+	return <div className="container-card">{loading ? <h1>Cargando...</h1> : products ? <ItemDetail {...products} setCart={setCart} cart={cart} /> : <h1>El producto no existe</h1>}</div>;
 };
 export default ItemDetailContainer;
