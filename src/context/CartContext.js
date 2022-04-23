@@ -19,6 +19,16 @@ export const CartContextProvider = ({ children }) => {
 		return count;
 	};
 
+	const total = () => {
+		let total = 0;
+		cart.forEach((prod) => {
+			const subtotal = prod.price * prod.quantity;
+			total += subtotal;
+		});
+
+		return total;
+	};
+
 	const isInCart = (id) => {
 		return cart.some((prod) => prod.id === id);
 	};
@@ -29,9 +39,9 @@ export const CartContextProvider = ({ children }) => {
 
 	const removeItem = (id) => {
 		const products = cart.filter((prod) => prod.id !== id);
+		setCart(products);
 	};
-
-	return <CartContext.Provider value={{ cart, addItem, getQuantity, isInCart, clearCart, removeItem }}>{children}</CartContext.Provider>;
+	return <CartContext.Provider value={{ cart, addItem, getQuantity, total, isInCart, clearCart, removeItem }}>{children}</CartContext.Provider>;
 };
 
 export default CartContext;

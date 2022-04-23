@@ -1,0 +1,48 @@
+.mainItemCard {
+	border: 2px solid black;
+	width: 90%;
+	margin: 20px auto;
+	padding: 10px;
+	display: flex;
+	background-color: white;
+}
+
+.mainItemCard__container {
+	flex-grow: 1;
+}
+
+.mainItemCard__title {
+	text-transform: uppercase;
+	font-weight: bold;
+	background-color: cornflowerblue;
+	color: white;
+	margin-bottom: 5px;
+	padding: 5px;
+}
+
+.mainItemCard__section {
+	font-size: 20px;
+	color: black;
+	padding: 5px 5px 0 5px;
+}
+.mainItemCard__parrafo {
+	font-weight: bold;
+	background-color: cornflowerblue;
+	margin: 5px 0;
+	padding: 5px;
+}
+
+.mainItemCard__icon {
+	border: none;
+	font-size: 50px;
+	cursor: pointer;
+	align-self: center;
+	padding-left: 10px;
+	transition: 1s;
+}
+
+.mainItemCard__icon:hover {
+	transition: 0.5s;
+	color: red;
+	transform: rotate(360deg);
+}

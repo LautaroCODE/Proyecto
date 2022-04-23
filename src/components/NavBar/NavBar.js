@@ -1,11 +1,13 @@
 import "./NavBar.css";
 import CartWidget from "../CartWidget/CartWidget";
 import { Link, NavLink } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { getCategories } from "../../asyncmock";
+import CartContext from "../../context/CartContext";
 
 const NavBar = (props) => {
 	const [categories, setCategories] = useState([]);
+	const { getQuantity } = useContext(CartContext);
 
 	useEffect(() => {
 		getCategories().then((categories) => {
@@ -57,7 +59,7 @@ const NavBar = (props) => {
 					</li>
 				))}
 			</ul>
-			<CartWidget />
+			{getQuantity() > 0 ? <CartWidget /> : null}
 		</nav>
 	);
 };

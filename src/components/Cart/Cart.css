@@ -1,0 +1,26 @@
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	margin-top: 10px;
+}
+
+.card-btn {
+	display: block;
+	text-decoration: none;
+	color: cornflowerblue;
+	text-transform: uppercase;
+	border: 2px solid black;
+	padding: 5px;
+	width: 200px;
+	margin: 20px auto;
+	text-align: center;
+}
+
+.total {
+	text-align: right;
+	text-transform: uppercase;
+	border: 2px solid black;
+	width: 90%;
+	margin: 30px auto;
+	padding: 5px;
+}
