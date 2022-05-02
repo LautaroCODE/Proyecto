@@ -27,7 +27,7 @@ const ItemDetailContainer = ({ setCart, cart }) => {
 
 		getDoc(doc(firestoreDb, "products", productId))
 			.then((response) => {
-				console.log(response);
+				// console.log(response);
 				const product = { id: response.id, ...response.data() };
 				setProducts(product);
 			})
