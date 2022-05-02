@@ -8,6 +8,7 @@ import { CartContextProvider } from "./context/CartContext";
 import Cart from "./components/Cart/Cart";
 // import ItemCount from "./components/ItemCount/ItemCount";
 // import MLListContainer from "./components/MLListContainer/MLListContainer";
+import Form from "./components/Form/Form";
 
 // export const Context = createContext();
 
@@ -42,6 +43,7 @@ function App() {
 						<Route path="/detail/:productId" element={<ItemDetailContainer />} />
 						<Route path="*" element={<h1>NOT FOUND 404</h1>} />
 						<Route path="/cart" element={<Cart />} />
+						<Route path="/form" element={<Form />} />
 					</Routes>
 				</BrowserRouter>
 			</CartContextProvider>

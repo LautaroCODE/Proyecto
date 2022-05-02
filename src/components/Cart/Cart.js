@@ -88,10 +88,10 @@ const Cart = () => {
 				<ItemCard key={e.id} {...e} />
 			))}
 			<h2 className="total">Total: {total()}</h2>
-			{/* <button onClick={() => clearCart()}> Clean Cart</button> */}
+			<button onClick={() => clearCart()}> Clean Cart</button>
 			<button onClick={() => createOrder()}>Generar Orden</button>
+			<Link to={"/form"}>Generar Orden</Link>
 		</>
 	);
 };
-//39:07 clase 13
 export default Cart;
