@@ -96,7 +96,7 @@ Visualiza la cantidad de productos en el carrito si este es menor o igual a cero
 
 :small_blue_diamond: **Form**
 
-Al ingresar los datos es necesario ingresar nombre y numero de teléfono, también verifica si los correos electrónicos coinciden de lo contrario no se habilitara el botón para finalizar la compra.
+Al ingresar los datos es necesario ingresar nombre, numero de teléfono y correo electrónico validos, también verifica si los correos electrónicos coinciden de lo contrario no se habilitara el botón para finalizar la compra.
 
 :small_blue_diamond: **Item**
 
@@ -292,9 +292,11 @@ y finalmente otra colección llamada orders que va a ser la que nosotros generam
 
 buyer
 
-email:"dionelalvarez@gmail.com"
+correo:"dionelalvarez@gmail.com"
 
-nombre:dionel
+correoConfirm:"dionelalvarez@gmail.com"
+
+nombre: "dionel"
 
 telefono:"3256888569"
 

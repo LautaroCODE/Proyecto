@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 
 const Form = () => {
-	const [input, setInput] = useState({ correo: "" });
+	const [input, setInput] = useState({ nombre: "", correo: "", telefono: "" });
 	const [loading, setLoading] = useState(false);
 	const [ordenId, setOrdenId] = useState(null);
 	const {
@@ -35,6 +35,7 @@ const Form = () => {
 			prodOrder: cart.map((prod) => {
 				return { id: prod.id, name: prod.name, quantity: prod.quantity, priceUni: prod.price };
 			}),
+			buyer: [input],
 			total: total(),
 			date: new Date(),
 		};
@@ -100,10 +101,14 @@ const Form = () => {
 			<h1 className="main-form__titulo">INGRESA TUS DATOS PARA GENERAR LA ORDEN DE COMPRA</h1>
 			<div>
 				<div className="main-form__container">
-					<input className="main-form__input" type="text" name="nombre" autoComplete="off" onKeyDown={handleKeyDown} placeholder="NOMBRE" required />
+					<input className="main-form__input" type="text" name="nombre" autoComplete="off" onKeyDown={handleKeyDown} {...register("nombre", { required: true, pattern: /^[A-Za-z]+$/i })} placeholder="NOMBRE" />
+					{errors.nombre?.type === "required" && <span className="main-form__error"> Ingrese un nombre </span>}
+					{errors.nombre?.type === "pattern" && <span className="main-form__error"> Ingrese un nombre valido </span>}
 				</div>
 				<div className="main-form__container">
-					<input className="main-form__input" type="tel" name="telefono" autoComplete="off" onKeyDown={handleKeyDown} placeholder="TELEFONO" required />
+					<input className="main-form__input" type="tel" name="telefono" autoComplete="off" onKeyDown={handleKeyDown} {...register("telefono", { required: true, pattern: /^[+]?([0-9]+(?:[0-9]*)?|\.[0-9]+)$/ })} placeholder="TELEFONO" />
+					{errors.telefono?.type === "required" && <span className="main-form__error"> Ingrese un telefono </span>}
+					{errors.telefono?.type === "pattern" && <span className="main-form__error"> Ingrese un telefono valido </span>}
 				</div>
 				<div className="main-form__container">
 					<input className="main-form__input" type="email" name="email" autoComplete="off" onKeyDown={handleKeyDown} {...register("correo", { required: true, pattern: /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/ })} placeholder="CORREO ELECTRONICO" />
