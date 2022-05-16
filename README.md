@@ -380,7 +380,7 @@ Totalmente agradecido con mi profesor [Sebastián Zuviria], mi tutor [Rodrigo Fe
 
 <!--IMAGENES-->
 
-[gifproyecto]: https://i.ibb.co/gSxzPks/Animation1.gif
+[gifproyecto]: https://i.postimg.cc/9QNC7nVp/Animation1.gif
 [htmlico]: https://img.icons8.com/color/48/000000/html-5--v1.png
 [cssico]: https://img.icons8.com/color/48/000000/css3.png
 [jsico]: https://img.icons8.com/color/50/000000/javascript.png
