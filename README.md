@@ -276,9 +276,9 @@ stock: 23
 
 Vamos a encontrarnos con tres categorías pero esta vez en vez de que tengan un ID generado automáticamente van a llevar sus respectivos nombres cada una con su descripción.
 
-\_ celular
-
-\_ notebook \* tablet
+- celular
+- notebook
+- tablet
 
 ```sql <!-- REALMENTE ES FIREBASE -->
 
