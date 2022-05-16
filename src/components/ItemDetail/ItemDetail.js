@@ -6,11 +6,9 @@ import CartContext from "../../context/CartContext";
 
 const ItemDetail = ({ id, img, price, name, stock }) => {
 	const { addItem, isInCart } = useContext(CartContext);
-	// console.log(value);
 
 	const handleAdd = (count) => {
 		if (count !== 0) {
-			// console.log(`Agregaste ${count} elementos al carrito`);
 			const objProd = {
 				id,
 				name,

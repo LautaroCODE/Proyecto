@@ -18,29 +18,53 @@
 	width: 90%;
 	height: 100%;
 	margin: 0 auto;
-	border-bottom: 2px solid cornflowerblue;
 }
 
 .main-form__input {
 	width: 100%;
-	background: none;
-	color: cornflowerblue;
+	background-color: rgb(141, 173, 236);
+	color: black;
 	padding-top: 20px;
 	margin: 10px;
 	border: none;
 	outline: 0px;
+	font-size: 20px;
 	text-transform: uppercase;
 }
 
 .main-form__btn {
 	display: block;
 	text-decoration: none;
-	color: cornflowerblue;
+	color: black;
 	text-transform: uppercase;
-	border: 2px solid black;
+	border: 2px solid cornflowerblue;
 	padding: 5px;
 	width: 200px;
 	margin: 20px auto;
 	text-align: center;
 	cursor: pointer;
+	background-color: white;
+	font-weight: bold;
+}
+
+.main-form__btn:hover {
+	background-color: rgb(65, 116, 212);
+	color: white;
+	border: 2px solid black;
+}
+
+.main-form__error {
+	color: red;
+	font-weight: bold;
+	font-size: 15px;
+	width: 100%;
+	margin: 10px;
+}
+
+.main-form__hidden {
+	visibility: hidden;
+}
+
+.main-form__visible {
+	visibility: visible;
 }

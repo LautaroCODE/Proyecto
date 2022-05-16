@@ -1,13 +1,18 @@
 .main-card {
 	display: inline-block;
-	width: 200px;
-	height: 280px;
+	width: 210px;
+	height: 300px;
 	text-align: center;
 	border: 2px solid black;
 	background-color: white;
 	box-shadow: -2px 1px 24px 1px rgba(0, 0, 0, 0.58);
 	border-radius: 5px;
 	overflow: hidden;
+	transition: 0.5s;
+}
+.main-card:hover {
+	box-shadow: -2px 1px 35px 5px cornflowerblue;
+	transition: 0.5s;
 }
 
 .main-card__img {
@@ -40,4 +45,8 @@
 .main-card__link {
 	text-decoration: none;
 	color: black;
+}
+
+.main-card__link:hover {
+	color: white;
 }

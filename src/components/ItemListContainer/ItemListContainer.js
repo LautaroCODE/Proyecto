@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { getProducts } from "../../asyncmock";
 import ItemList from "../ItemList/ItemList";
 import { useParams } from "react-router-dom";
 import { getDocs, collection, query, where, limit, orderBy } from "firebase/firestore";
@@ -11,19 +10,9 @@ const ItemListContainer = (props) => {
 	const { categoryId } = useParams();
 
 	useEffect(() => {
-		// getProducts(categoryId)
-		// 	.then((prods) => {
-		// 		setProducts(prods);
-		// 	})
-		// 	.catch((error) => {
-		// 		console.log(error);
-		// 	});
-
-		const collectionRef = categoryId ? query(collection(firestoreDb, "products"), where("category", "==", categoryId), limit(2)) : query(collection(firestoreDb, "products"), orderBy("name", "asc"), limit(4));
-		//: collection(firestoreDb, "products");
+		const collectionRef = categoryId ? query(collection(firestoreDb, "products"), where("category", "==", categoryId), limit(20)) : query(collection(firestoreDb, "products"), orderBy("name", "asc"), limit(20));
 
 		getDocs(collectionRef).then((response) => {
-			// console.log(response);
 			const products = response.docs.map((doc) => {
 				return { id: doc.id, ...doc.data() };
 			});

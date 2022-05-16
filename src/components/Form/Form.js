@@ -4,29 +4,28 @@ import { getDocs, writeBatch, query, where, collection, documentId, addDoc } fro
 import { firestoreDb } from "../../services/firebase/index";
 import "./Form.css";
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Form = () => {
-	const [input, setInput] = useState("");
+	const [input, setInput] = useState({ correo: "" });
 	const [loading, setLoading] = useState(false);
 	const [ordenId, setOrdenId] = useState(null);
-
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+	} = useForm();
 	const { cart, total, clearCart } = useContext(CartContext);
 
-	const handleSubmit = (e) => {
+	const onSubmit = (i, e) => {
 		e.preventDefault();
-		// console.log(input)
+		setInput(i);
 	};
 
 	const handleKeyDown = (e) => {
 		if (e.code === "Space") {
 			e.preventDefault();
 		}
-	};
-
-	const handleChange = (e) => {
-		const name = e.target.name;
-		const value = e.target.value;
-		setInput((values) => ({ ...values, [name]: value }));
 	};
 
 	const createOrder = () => {
@@ -36,7 +35,6 @@ const Form = () => {
 			prodOrder: cart.map((prod) => {
 				return { id: prod.id, name: prod.name, quantity: prod.quantity, priceUni: prod.price };
 			}),
-			buyer: input,
 			total: total(),
 			date: new Date(),
 		};
@@ -98,21 +96,33 @@ const Form = () => {
 	}
 
 	return (
-		<form className="main-form" onSubmit={handleSubmit}>
+		<form className="main-form" onSubmit={handleSubmit(onSubmit)}>
 			<h1 className="main-form__titulo">INGRESA TUS DATOS PARA GENERAR LA ORDEN DE COMPRA</h1>
 			<div>
 				<div className="main-form__container">
-					<input className="main-form__input" type="text" onKeyDown={handleKeyDown} onChange={handleChange} name="nombre" placeholder="nombre" value={input.nombre} required />
+					<input className="main-form__input" type="text" name="nombre" autoComplete="off" onKeyDown={handleKeyDown} placeholder="NOMBRE" required />
 				</div>
 				<div className="main-form__container">
-					<input className="main-form__input" type="tel" onKeyDown={handleKeyDown} onChange={handleChange} name="telefono" placeholder="telefono" value={input.telefono} required />
+					<input className="main-form__input" type="tel" name="telefono" autoComplete="off" onKeyDown={handleKeyDown} placeholder="TELEFONO" required />
 				</div>
 				<div className="main-form__container">
-					<input className="main-form__input" type="email" onKeyDown={handleKeyDown} onChange={handleChange} name="email" placeholder="email" value={input.email} required />
+					<input className="main-form__input" type="email" name="email" autoComplete="off" onKeyDown={handleKeyDown} {...register("correo", { required: true, pattern: /^[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/ })} placeholder="CORREO ELECTRONICO" />
+					{errors.correo?.type === "required" && <span className="main-form__error">Ingrese un correo electronico</span>}
+					{errors.correo?.type === "pattern" && <span className="main-form__error">Ingrese un correo electronico valido</span>}
+				</div>
+				<div className="main-form__container">
+					<input className="main-form__input" type="email" name="email" autoComplete="off" onKeyDown={handleKeyDown} {...register("correoConfirm", { required: true, pattern: /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/ })} placeholder="CORREO ELECTRONICO" />
+					{errors.correoConfirm?.type === "required" && <span className="main-form__error">Ingrese un correo electronico</span>}
+					{errors.correoConfirm?.type === "pattern" && <span className="main-form__error">Ingrese un correo electronico valido</span>}
 				</div>
 			</div>
+
 			<div>
-				<input className="main-form__btn" type="submit" onClick={() => createOrder()} value="comprar" />
+				<button className={input.correoConfirm === input.correo ? "main-form__hidden" : "main-form__btn main-form__visible"}> VERIFICAR </button>
+
+				<button className={input.correoConfirm === input.correo ? "main-form__btn" : "main-form__hidden"} onClick={() => createOrder()}>
+					comprar
+				</button>
 			</div>
 		</form>
 	);
