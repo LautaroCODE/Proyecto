@@ -70,7 +70,7 @@ Además en la parte derecha de cada detalle visualizaras un botón con una **"X"
 
 Si eliminas todos los productos aparecerá un botón **"SEGUIR COMPRANDO"** para regresar al inicio donde podrás ver mas productos.
 
-:five: En esta parte te va a pedir ingresar tus datos donde si todo es correcto al presionar el botón **''COMPRAR"** podrás visualizar el numero de orden correspondiente a tu compra. Además aparecerá un botón donde podrás seguir viendo mas productos al pulsarlo y el carrito quedara vacío.
+:five: En esta parte te va a pedir ingresar tus datos y verificarlos presionando el boton **''VERIFICAR"** donde si todo es correcto se habilita el botón **''COMPRAR"** y al presionarlo podrás visualizar el numero de orden correspondiente a tu compra. Además aparecerá un botón donde podrás seguir viendo mas productos al pulsarlo y el carrito quedara vacío.
 
 ### MODIFICACION Y DESPLIEGE :wrench:
 
